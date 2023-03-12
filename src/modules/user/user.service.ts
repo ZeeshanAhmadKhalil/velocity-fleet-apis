@@ -6,7 +6,7 @@ import { RegisterDto } from 'src/database/models/dtos/register.dto';
 import {
     User,
     UserDocument
-} from 'src/database/models/schemas/user.schema';
+} from '@models/schemas/user.schema';
 
 @Injectable()
 export class UserService {
