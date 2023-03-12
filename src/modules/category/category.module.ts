@@ -19,6 +19,9 @@ import { JwtStrategy } from '@authentication/strategy/jwt.strategy';
   providers: [
     CategoryService,
     JwtStrategy,
-  ]
+  ],
+  exports: [
+    CategoryService,
+  ],
 })
 export class CategoryModule { }
