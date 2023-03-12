@@ -16,6 +16,29 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@modules/*": [
+        "src/modules/*"
+      ],
+      "@authentication/*": [
+        "src/config/authentication/*"
+      ],
+      "@config/*": [
+        "src/config/*",
+      ],
+      "@schemas/*": [
+        "src/database/models/schemas/*"
+      ],
+      "@dtos/*": [
+        "src/database/models/dtos/*"
+      ],
+      "@models/*": [
+        "src/database/models/*"
+      ],
+      "@seed/*": [
+        "src/database/seed/*"
+      ],
+    }
   }
 }
