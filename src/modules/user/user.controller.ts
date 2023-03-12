@@ -5,8 +5,11 @@ import {
     Request,
     UseGuards
 } from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @Controller()
+@ApiTags('user')
 export class UserController {
 
     @UseGuards(JwtAuthGuard)
