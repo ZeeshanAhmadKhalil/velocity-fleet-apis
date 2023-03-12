@@ -5,6 +5,6 @@ import { NestFactory } from '@nestjs/core'
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
   app.useGlobalPipes(new ValidationPipe())
-  await app.listen(6969)
+  await app.listen(8085)
 }
 bootstrap()

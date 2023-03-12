@@ -10,9 +10,9 @@ import { AppService } from './app.service'
   imports: [
     AuthModule,
     UserModule,
-    // MongooseModule.forRoot(
-    //   connectionString,
-    // )
+    MongooseModule.forRoot(
+      connectionString,
+    )
   ],
   controllers: [AppController],
   providers: [AppService],
