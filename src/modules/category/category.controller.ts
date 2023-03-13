@@ -27,7 +27,10 @@ export class CategoryController {
 
   @UseGuards(JwtAuthGuard)
   @Post()
-  create(@Body() createCategoryDto: CreateCategoryDto, @Request() req) {
+  create(
+    @Body() createCategoryDto: CreateCategoryDto,
+    @Request() req
+  ) {
 
     return this.categoryService.create(createCategoryDto, req.user);
   }
