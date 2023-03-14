@@ -41,16 +41,19 @@ export class CarController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get()
-  findAll(@Request() req) {
+  @Get(':categoryId')
+  findAll(
+    @Param('categoryId') categoryId: string,
+    @Request() req
+  ) {
 
-    return this.carService.findAll(req.user)
+    return this.carService.findAll(req.user, categoryId)
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.carService.findOne(id)
+  @Get('car/count')
+  count(@Request() req) {
+    return this.carService.count(req.user)
   }
 
   @UseGuards(JwtAuthGuard)
@@ -65,4 +68,5 @@ export class CarController {
   remove(@Param('id') id: string) {
     return this.carService.remove(id)
   }
+
 }

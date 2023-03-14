@@ -32,13 +32,21 @@ export class CarService {
     return await car.save()
   }
 
-  async findAll(user: User) {
+  async findAll(user: User, categoryId: string) {
 
-    return await this.carModel
-      .find({
-        user,
-        isDeleted: false,
-      })
+    if (categoryId == "all")
+      return await this.carModel
+        .find({
+          user,
+          isDeleted: false,
+        }).populate('category')
+    else
+      return await this.carModel
+        .find({
+          user,
+          isDeleted: false,
+          category: categoryId
+        }).populate('category')
   }
 
   async findOne(id: string) {
@@ -48,6 +56,14 @@ export class CarService {
         _id: id,
         isDeleted: false,
       })
+  }
+
+  async count(user: User) {
+    return await this.carModel
+      .find({
+        user,
+        isDeleted: false,
+      }).count()
   }
 
   async update(id: string, updateCarDto: UpdateCarDto) {
@@ -61,7 +77,7 @@ export class CarService {
         updateCarDto,
       )
 
-    return 'Car updated successfully'
+    return { message: 'Car updated successfully' }
   }
 
   async remove(id: string) {
@@ -72,6 +88,6 @@ export class CarService {
         { isDeleted: true }
       )
 
-    return 'Category deleted successfully'
+    return { message: 'Category deleted successfully' }
   }
 }

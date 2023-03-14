@@ -1,12 +1,16 @@
-import { encryptPassword, generatePassword } from '@config/helper';
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { RegisterDto } from 'src/database/models/dtos/register.dto';
+import {
+    encryptPassword,
+    generatePassword,
+    sendEmail
+} from '@config/helper';
 import {
     User,
     UserDocument
 } from '@models/schemas/user.schema';
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { RegisterDto } from 'src/database/models/dtos/register.dto';
 
 @Injectable()
 export class UserService {
@@ -19,10 +23,13 @@ export class UserService {
 
         let generatedPassword = generatePassword()
 
-        console.log("generatedPassword===>", generatedPassword)
-
         let hashPassword
             = await encryptPassword(generatedPassword)
+
+        sendEmail({
+            registerDto,
+            generatedPassword,
+        })
 
         const register = new this.userModel({
             ...registerDto,
