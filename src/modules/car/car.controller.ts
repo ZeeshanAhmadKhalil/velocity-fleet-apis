@@ -51,9 +51,9 @@ export class CarController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('car/count')
-  count(@Request() req) {
-    return this.carService.count(req.user)
+  @Get('car-by-id/:id')
+  findOne(@Param('id') id: string) {
+    return this.carService.findOne(id)
   }
 
   @UseGuards(JwtAuthGuard)
