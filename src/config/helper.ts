@@ -1,32 +1,19 @@
 import { mailjetPrivate, mailjetPublic } from "./keys";
+import { hash, compare } from 'bcryptjs';
 
-const bcrypt = require('bcrypt')
 const saltRounds = 1
 const Mailjet = require('node-mailjet');
 
 const encryptPassword = async (password: string) => {
 
-    let encrypt = new Promise((resolve, reject) => {
-        bcrypt.hash(password,
-            saltRounds,
-            (error: any, hash: string) => {
-                if (hash)
-                    resolve(hash)
-                if (error)
-                    reject(error)
-            }
-        )
-    })
-
-    return await encrypt
-
+    return await hash(password, 10)
 }
 const checkPassword = async (
     password: string,
     hash: string
 ) => {
 
-    return bcrypt.compareSync(password, hash)
+    return await compare(password, hash)
 }
 const generatePassword = () => {
     return Math.random().toString(36).slice(2, 10)
