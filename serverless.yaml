@@ -1,0 +1,28 @@
+org: defenderkhan
+app: velocity-fleet-apis
+service: velocity-fleet-apis
+
+useDotenv: true
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    JWT_SECRET: ${env:JWT_SECRET}
+    CONNECTION_STRING: ${env:CONNECTION_STRING}
+    MAILJET_PUBLIC: ${env:MAILJET_PUBLIC}
+    MAILJET_PRIVATE: ${env:MAILJET_PRIVATE}
+
+functions:
+  main:
+    handler: dist/serverless.handler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: "{proxy+}"
