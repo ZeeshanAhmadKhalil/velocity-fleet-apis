@@ -50,7 +50,3 @@ All endpoints require proper authentication headers and follow RESTful conventio
 3. Configure the base URL in your API configuration
 4. Implement authentication flow
 5. Build your fleet management features
-
-## Support
-
-For technical questions or issues, please refer to the project maintainers.
