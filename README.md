@@ -14,6 +14,12 @@ Velocity Fleet APIs provides a comprehensive backend solution for fleet manageme
 https://velocity-fleet-apis-d7d5527ad5c2.herokuapp.com
 ```
 
+## API Docs
+
+```
+https://velocity-fleet-apis-d7d5527ad5c2.herokuapp.com/api
+```
+
 ## Required Technology Stack
 
 ### 1. React Native Expo
