@@ -9,6 +9,12 @@ import {
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
 
+  // Debug information
+  const port = parseInt(process.env.PORT) || 6902
+  console.log(`Starting Velocity Fleet APIs on port: ${port}`)
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`)
+  console.log(`Database connection string: ${process.env.CONNECTION_STRING ? 'Set' : 'Not set'}`)
+
   const config = new DocumentBuilder()
     .addBearerAuth()
     .setTitle('Velocity Fleet')
@@ -23,6 +29,7 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe())
   app.enableCors();
-  await app.listen(parseInt(process.env.PORT) || 6902)
+  await app.listen(port)
+  console.log(`Velocity Fleet APIs is running on port: ${port}`)
 }
 bootstrap()
