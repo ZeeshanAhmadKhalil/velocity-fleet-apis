@@ -16,7 +16,7 @@ export class AppController {
       status: 'OK',
       timestamp: new Date().toISOString(),
       message: 'Velocity Fleet APIs is running!',
-      database: 'Temporarily disabled for testing'
+      database: 'Enabled - MongoDB Atlas'
     };
   }
 }
