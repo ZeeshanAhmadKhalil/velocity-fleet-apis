@@ -4,4 +4,19 @@ import { AppService } from './app.service';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) { }
+
+  @Get()
+  getHello(): string {
+    return this.appService.getHello();
+  }
+
+  @Get('health')
+  getHealth(): object {
+    return {
+      status: 'OK',
+      timestamp: new Date().toISOString(),
+      message: 'Velocity Fleet APIs is running!',
+      database: 'Temporarily disabled for testing'
+    };
+  }
 }

@@ -10,32 +10,33 @@ import { CarModule } from '@modules/car/car.module'
 
 @Module({
   imports: [
-    AuthModule,
-    UserModule,
-    CategoryModule,
-    CarModule,
-    MongooseModule.forRoot(
-      connectionString,
-      {
-        connectionFactory: (connection) => {
-          connection.on('connected', () => {
-            console.log('MongoDB is connected');
-          });
-          connection.on('error', (error) => {
-            console.error('MongoDB connection error:', error);
-          });
-          connection.on('disconnected', () => {
-            console.log('MongoDB is disconnected');
-          });
-          return connection;
-        },
-        maxPoolSize: 10,
-        serverSelectionTimeoutMS: 5000,
-        socketTimeoutMS: 45000,
-        bufferMaxEntries: 0,
-        bufferCommands: false,
-      }
-    )
+    // Temporarily commenting out database connection for testing
+    // AuthModule,
+    // UserModule,
+    // CategoryModule,
+    // CarModule,
+    // MongooseModule.forRoot(
+    //   connectionString,
+    //   {
+    //     connectionFactory: (connection) => {
+    //       connection.on('connected', () => {
+    //         console.log('MongoDB is connected');
+    //       });
+    //       connection.on('error', (error) => {
+    //         console.error('MongoDB connection error:', error);
+    //       });
+    //       connection.on('disconnected', () => {
+    //         console.log('MongoDB is disconnected');
+    //       });
+    //       return connection;
+    //     },
+    //     maxPoolSize: 10,
+    //     serverSelectionTimeoutMS: 5000,
+    //     socketTimeoutMS: 45000,
+    //     bufferMaxEntries: 0,
+    //     bufferCommands: false,
+    //   }
+    // )
   ],
   controllers: [AppController],
   providers: [AppService],
