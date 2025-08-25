@@ -1,7 +1,5 @@
 import {
     encryptPassword,
-    generatePassword,
-    sendEmail
 } from '@config/helper';
 import {
     User,
@@ -21,15 +19,8 @@ export class UserService {
     }
     async register(registerDto: RegisterDto): Promise<any> {
 
-        let generatedPassword = generatePassword()
-
-        let hashPassword
-            = await encryptPassword(generatedPassword)
-
-        sendEmail({
-            registerDto,
-            generatedPassword,
-        })
+        // Hash the password provided by the user
+        let hashPassword = await encryptPassword(registerDto.password)
 
         const register = new this.userModel({
             ...registerDto,
