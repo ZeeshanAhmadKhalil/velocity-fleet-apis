@@ -1,58 +1,62 @@
-# Velocity Fleet APIs
+# MERN Stack Development Challenge
 
-<p align="center">
-  <img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" />
-</p>
+## 🎯 Project Overview
 
-## Overview
+Welcome to the MERN stack development challenge! This project is designed to test your full-stack development skills. You will be creating and integrating the APIs.
 
-Velocity Fleet APIs provides a comprehensive backend solution for fleet management applications. This document outlines the technology stack required for frontend integration.
+## 🚀 Tech Stack Requirements 
 
-## Base URL
+### Backend
+- **NestJS** - Modern Node.js framework
+- **Prisma ORM** - Next-generation ORM for Node.js and TypeScript
+- **MongoDB or PostgreSQL** - Choose your preferred database
+- **JWT Authentication** - Secure user authentication system
+- **Swagger/OpenAPI** - API documentation
 
-```
-https://velocity-fleet-apis-d7d5527ad5c2.herokuapp.com
-```
+### Frontend
+- **Next.js** - React framework for production
+- **RTK Query** - Powerful data fetching and caching library
+- **Redux Toolkit** - State management
+- **Redux Persist** - Persist and rehydrate Redux store
 
-## API Docs
+## 📋 Development Challenge
 
-```
-https://velocity-fleet-apis-d7d5527ad5c2.herokuapp.com/api
-```
+### API Endpoints To Implement and Integrate
 
-## Required Technology Stack
+**Authentication Module (`/auth`)**
 
-### 1. React Native Expo
-- Use Expo for cross-platform mobile development
-- Ensure compatibility with the latest Expo SDK
+1. `POST /auth/register` - User registration
+2. `POST /auth/login` - User login
 
-### 2. RTK Query
-- Implement data fetching and caching
-- Handle API state management efficiently
+**User Module (`/user`)**
 
-### 3. Redux Persist
-- Persist Redux state across app sessions
-- Maintain user authentication state
+1. `GET /user/profile` - Get user profile (protected route)
 
-### 4. React Navigation
-- Implement navigation between screens
-- Handle authentication flow navigation
+**Category Module (`/category`)**
 
-## API Endpoints
+1. `POST /category` - Create new category (protected route)
+3. `GET /category` - Get all categories for authenticated user (protected route)
+4. `GET /category/:id` - Get category by ID (protected route)
+5. `PATCH /category/:id` - Update category (protected route)
+6. `DELETE /category/:id` - Delete category (protected route)
 
-The following endpoints are available for integration:
+**Car Module (`/car`)**
 
-- **Authentication**: `/auth/register`, `/auth/login`
-- **Users**: `/user`
-- **Categories**: `/category`
-- **Cars**: `/car`
+1. `POST /car` - Create new car (protected route)
+2. `GET /car/:categoryId` - Get all cars for a specific category (protected route)
+3. `GET /car/car-by-id/:id` - Get car by ID (protected route)
+4. `PATCH /car/:id` - Update car (protected route)
+5. `DELETE /car/:id` - Delete car (protected route)
 
-All endpoints require proper authentication headers and follow RESTful conventions.
+## 📝 Submission Guidelines
 
-## Getting Started
 
-1. Set up your React Native Expo project
-2. Install the required dependencies
-3. Configure the base URL in your API configuration
-4. Implement authentication flow
-5. Build your fleet management features
+1. **Public Repositories**: Create public GitHub repositories for both backend and frontend projects
+2. **Repository Links**: Share the GitHub repository links for both projects
+
+## 🎯 Evaluation Criteria
+
+- **Code Quality**: Clean, maintainable, and well-structured code
+- **Functionality**: All required features implemented correctly
+- **Security**: Proper authentication and authorization
+- **UI/UX**: Intuitive and responsive user interface
